@@ -1,0 +1,47 @@
+using gpu:0 to train the model
+Loading dataset collab_06
+total length: 16, test length: 5
+Epoch:1, Loss: 6.4081, Time: 10.177
+Current: Epoch:1, Train AUC:0.7641, Val AUC: 0.7603, Test AUC: 0.7094
+Train: Epoch:1, Train AUC:0.7641, Val AUC: 0.7603, Test AUC: 0.7094
+Test: Epoch:1, Train AUC:0.6668, Val AUC: 0.6690, Test AUC: 0.6525
+Epoch:10, Loss: 3.1870, Time: 11.107
+Current: Epoch:10, Train AUC:0.7453, Val AUC: 0.7572, Test AUC: 0.7332
+Train: Epoch:10, Train AUC:0.7641, Val AUC: 0.7603, Test AUC: 0.7094
+Test: Epoch:10, Train AUC:0.7564, Val AUC: 0.7704, Test AUC: 0.7447
+Epoch:20, Loss: 2.6512, Time: 10.422
+Current: Epoch:20, Train AUC:0.8323, Val AUC: 0.8437, Test AUC: 0.8172
+Train: Epoch:20, Train AUC:0.8323, Val AUC: 0.8437, Test AUC: 0.8172
+Test: Epoch:20, Train AUC:0.8392, Val AUC: 0.8518, Test AUC: 0.8238
+Epoch:30, Loss: 3.1143, Time: 10.241
+Current: Epoch:30, Train AUC:0.8654, Val AUC: 0.8738, Test AUC: 0.8540
+Train: Epoch:30, Train AUC:0.8654, Val AUC: 0.8738, Test AUC: 0.8540
+Test: Epoch:30, Train AUC:0.8669, Val AUC: 0.8768, Test AUC: 0.8562
+Epoch:40, Loss: 1.3486, Time: 9.582
+Current: Epoch:40, Train AUC:0.8774, Val AUC: 0.8886, Test AUC: 0.8630
+Train: Epoch:40, Train AUC:0.8779, Val AUC: 0.8903, Test AUC: 0.8636
+Test: Epoch:40, Train AUC:0.8778, Val AUC: 0.8889, Test AUC: 0.8642
+Epoch:50, Loss: 2.3493, Time: 9.668
+Current: Epoch:50, Train AUC:0.8801, Val AUC: 0.8852, Test AUC: 0.8699
+Train: Epoch:50, Train AUC:0.8779, Val AUC: 0.8903, Test AUC: 0.8636
+Test: Epoch:50, Train AUC:0.8822, Val AUC: 0.8863, Test AUC: 0.8715
+Epoch:60, Loss: 1.4101, Time: 9.543
+Current: Epoch:60, Train AUC:0.8676, Val AUC: 0.8827, Test AUC: 0.8573
+Train: Epoch:60, Train AUC:0.8779, Val AUC: 0.8903, Test AUC: 0.8636
+Test: Epoch:60, Train AUC:0.8727, Val AUC: 0.8859, Test AUC: 0.8621
+Epoch:70, Loss: 1.5224, Time: 9.789
+Current: Epoch:70, Train AUC:0.8858, Val AUC: 0.8943, Test AUC: 0.8760
+Train: Epoch:68, Train AUC:0.9627, Val AUC: 0.9450, Test AUC: 0.9409
+Test: Epoch:68, Train AUC:0.8692, Val AUC: 0.8892, Test AUC: 0.8675
+Epoch:80, Loss: 3.8595, Time: 9.721
+Current: Epoch:80, Train AUC:0.8694, Val AUC: 0.8892, Test AUC: 0.8656
+Train: Epoch:68, Train AUC:0.9627, Val AUC: 0.9450, Test AUC: 0.9409
+Test: Epoch:68, Train AUC:0.8692, Val AUC: 0.8892, Test AUC: 0.8675
+Epoch:89, Loss: 3.8590, Time: 9.643
+Current: Epoch:89, Train AUC:0.8697, Val AUC: 0.8887, Test AUC: 0.8651
+Train: Epoch:68, Train AUC:0.9627, Val AUC: 0.9450, Test AUC: 0.9409
+Test: Epoch:68, Train AUC:0.8692, Val AUC: 0.8892, Test AUC: 0.8675
+   train_auc   val_auc  test_auc  ...  test_val_auc  test_test_auc  epoch_time
+0   0.962725  0.945033  0.940996  ...      0.889227       0.867541   9.435672
+
+[1 rows x 8 columns]
