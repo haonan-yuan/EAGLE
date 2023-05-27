@@ -1,6 +1,6 @@
 # EAGLE: Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization
 
-This repository is the official implementation of "Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)" submitted to 37th Conference on Neural Information Processing Systems (NeurIPS 2023)
+This repository is the official implementation of "Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)" submitted to 37th Conference on Neural Information Processing Systems (NeurIPS 2023).
 
 ## Abstract
 
