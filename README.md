@@ -1,6 +1,6 @@
 # EAGLE: Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization
 
-This repository is the official implementation of "Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)" submitted to 37th Conference on Neural Information Processing Systems (NeurIPS 2023).
+This repository is the official implementation of "Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)" accepted by the 37th Conference on Neural Information Processing Systems (NeurIPS 2023).
 
 ## Abstract
 
@@ -15,7 +15,7 @@ Main package requirements:
 - `PyTorch == 1.9.1`
 - `PyTorch-Geometric == 2.0.1`
 
-To install the comlete requiring packages, using following command at root directory of the repository:
+To install the complete requiring packages, use following command at the root directory of the repository:
 
 ```setup
 pip install -r requirements.txt
@@ -35,7 +35,7 @@ python main.py --mode=train --use_cfg=1 --dataset=<dataset_name>
 Explanations for the arguments:
 
 - `use_cfg`: if training with the preset configurations.
-- `dataset`: name of the datasets, including "collab", "yelp", "act", "collab_04", "collab_06", "collab_08".
+- `dataset`: name of the datasets, including "collab", "yelp", "act", "collab_04", "collab_06", and "collab_08".
 
 
 ### Evaluation
@@ -46,7 +46,7 @@ To evaluate the EAGLE with trained models, run the following command in the dire
 python main.py --mode=eval --use_cfg=1 --dataset=<dataset_name>
 ```
 
-Please put the trained model in the directory `./saved_model`. Note that, we have already provided some of the pre-trained models in the directory, and we will release all pre-trained models in the future.
+Please put the trained model in the directory `./saved_model`. Note that, we have already provided all the pre-trained models in the directory for re-evaluation.
 
 ### Reproductivity
 
