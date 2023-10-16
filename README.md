@@ -55,3 +55,17 @@ To reproduce the main results, we have already provided all experiment logs in t
 ```
 python show_result.py
 ```
+
+# Citation
+If you find this repository helpful, please consider citing the following paper.
+
+```bibtex
+@inproceedings{
+yuan2023environmentaware,
+title={Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization},
+author={Yuan, Haonan and Sun, Qingyun and Fu, Xingcheng and Zhang, Ziwei and Ji, Cheng and Peng, Hao and Li, Jianxin},
+booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+year={2023},
+url={https://openreview.net/forum?id=n8JWIzYPRz}
+}
+```
