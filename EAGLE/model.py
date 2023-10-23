@@ -17,7 +17,7 @@ class RelTemporalEncoding(nn.Module):
     def __init__(self, n_hid, max_len=50, dropout=0.2):
         super(RelTemporalEncoding, self).__init__()
 
-        position = torch.arange(0., max_len).unsqueeze(1)
+        position = torch.arange(0.0, max_len).unsqueeze(1)
         div_term = torch.exp(torch.arange(0, n_hid, 2) * -(math.log(10000.0) / n_hid))
         emb = nn.Embedding(max_len, n_hid)
         emb.weight.data[:, 0::2] = torch.sin(position * div_term) / math.sqrt(n_hid)
@@ -82,7 +82,7 @@ class SparseInputLinear(nn.Module):
         self.reset_parameters()
 
     def reset_parameters(self):
-        stdv = 1. / np.sqrt(self.weight.size(1))
+        stdv = 1.0 / np.sqrt(self.weight.size(1))
         self.weight.data.uniform_(-stdv, stdv)
         self.bias.data.uniform_(-stdv, stdv)
 
@@ -173,7 +173,7 @@ class EAConv(nn.Module):
         return fac_t_emb
 
     def aggregate_lastt_v2(self, x_all, t):
-        x_all_toagg = torch.sum(x_all[:t + 1])
+        x_all_toagg = torch.sum(x_all[: t + 1])
         layer = nn.Linear(self.d, self.delta_d).to(x_all[0].device)
         fac_t_emb = F.sigmoid(layer(x_all_toagg))
         return fac_t_emb
@@ -197,10 +197,16 @@ class EAConv(nn.Module):
         emb = torch.zeros((times, x_all[0].size(0), self.d)).to(dev)
 
         for t in range(times):
-            x_temp = self.aggregate_former_v2(x_all[t], neighbors_all[t].view(-1), max_iter)
+            x_temp = self.aggregate_former_v2(
+                x_all[t], neighbors_all[t].view(-1), max_iter
+            )
             if t > 0:
-                weights = F.sigmoid(torch.tensor(list(range(t))).view(t, 1, 1).to(x_all[0].device))
-                emb[t] = (torch.sum(weights * emb[:t], dim=0) / t) * self.agg_param + x_temp * (1 - self.agg_param)
+                weights = F.sigmoid(
+                    torch.tensor(list(range(t))).view(t, 1, 1).to(x_all[0].device)
+                )
+                emb[t] = (
+                    torch.sum(weights * emb[:t], dim=0) / t
+                ) * self.agg_param + x_temp * (1 - self.agg_param)
             else:
                 emb[t] = x_temp
             emb[t] = emb[t].view(n, self.d)
@@ -222,10 +228,14 @@ class EADGNN(nn.Module):
         self.maxiter = args.maxiter
         self.use_RTE = args.use_RTE
         self.agg_param = args.agg_param
-        self.feat = Parameter((torch.ones(args.num_nodes, args.nfeat)).to(args.device), requires_grad=True)
+        self.feat = Parameter(
+            (torch.ones(args.num_nodes, args.nfeat)).to(args.device), requires_grad=True
+        )
         self.linear = SparseInputLinear(self.in_dim, self.hid_dim)
         self.layers = nn.ModuleList(
-            EAConv(self.hid_dim, self.n_factors, self.agg_param, self.use_RTE) for i in range(self.n_layers))
+            EAConv(self.hid_dim, self.n_factors, self.agg_param, self.use_RTE)
+            for i in range(self.n_layers)
+        )
         self.relu = F.relu
         self.LeakyReLU = nn.LeakyReLU()
         self.dropout = args.dropout
@@ -246,10 +256,18 @@ class EADGNN(nn.Module):
         for i, layer in enumerate(self.layers):
             x_list = layer(x_list, neighbors_all, self.maxiter)
             if i != len(self.layers) - 1:
-                x_list = x_list.view(len(x_list), len(x_list[0]), self.n_factors, self.delta_d)
+                x_list = x_list.view(
+                    len(x_list), len(x_list[0]), self.n_factors, self.delta_d
+                )
                 x_list = self.LeakyReLU(x_list.to(self.device))
-                x_list = [F.dropout(input=F.normalize(x, dim=2), p=self.dropout, training=self.training) for x in
-                          x_list]
+                x_list = [
+                    F.dropout(
+                        input=F.normalize(x, dim=2),
+                        p=self.dropout,
+                        training=self.training,
+                    )
+                    for x in x_list
+                ]
 
         return x_list
 

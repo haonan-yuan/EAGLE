@@ -55,69 +55,87 @@ def select_by_venue(edges, venues=[0, 1]):
 def load_data(args):
     seed_everything(0)
     dataset = args.dataset
-    if dataset == 'collab':
-        from ..data_configs.collab import (testlength, vallength, length, processed_datafile)
+    if dataset == "collab":
+        from ..data_configs.collab import (
+            testlength,
+            vallength,
+            length,
+            processed_datafile,
+        )
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
         args.length = length
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'].shape[1]
-        args.num_nodes = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"].shape[1]
+        args.num_nodes = len(data["x"])
 
-    elif dataset == 'yelp':
-        from ..data_configs.yelp import (testlength, vallength, length, processed_datafile, shift, num_nodes)
+    elif dataset == "yelp":
+        from ..data_configs.yelp import (
+            testlength,
+            vallength,
+            length,
+            processed_datafile,
+            shift,
+            num_nodes,
+        )
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
         args.length = length
         args.shift = shift
         args.num_nodes = num_nodes
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'].shape[1]
-        args.num_nodes = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"].shape[1]
+        args.num_nodes = len(data["x"])
 
-    elif dataset == 'act':
-        from ..data_configs.act import (testlength, vallength, length, processed_datafile)
+    elif dataset == "act":
+        from ..data_configs.act import testlength, vallength, length, processed_datafile
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
         args.length = length
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'].shape[1]
-        args.num_nodes = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"].shape[1]
+        args.num_nodes = len(data["x"])
 
-    elif dataset == 'collab_04':
-        from ..data_configs.collab_04 import (testlength, vallength, processed_datafile)
+    elif dataset == "collab_04":
+        from ..data_configs.collab_04 import testlength, vallength, processed_datafile
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'][0].shape[1]
-        args.num_nodes = len(data['x'][0])
-        args.length = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"][0].shape[1]
+        args.num_nodes = len(data["x"][0])
+        args.length = len(data["x"])
 
-    elif dataset == 'collab_06':
-        from ..data_configs.collab_06 import (testlength, vallength, processed_datafile)
+    elif dataset == "collab_06":
+        from ..data_configs.collab_06 import testlength, vallength, processed_datafile
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'][0].shape[1]
-        args.num_nodes = len(data['x'][0])
-        args.length = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"][0].shape[1]
+        args.num_nodes = len(data["x"][0])
+        args.length = len(data["x"])
 
-    elif dataset == 'collab_08':
-        from ..data_configs.collab_08 import (testlength, vallength, processed_datafile)
+    elif dataset == "collab_08":
+        from ..data_configs.collab_08 import testlength, vallength, processed_datafile
+
         args.dataset = dataset
         args.testlength = testlength
         args.vallength = vallength
-        data = torch.load(f'{processed_datafile}')
-        args.nfeat = data['x'][0].shape[1]
-        args.num_nodes = len(data['x'][0])
-        args.length = len(data['x'])
+        data = torch.load(f"{processed_datafile}")
+        args.nfeat = data["x"][0].shape[1]
+        args.num_nodes = len(data["x"][0])
+        args.length = len(data["x"])
 
     else:
-        raise NotImplementedError(f'Unknown dataset {dataset}')
-    print(f'Loading dataset {dataset}')
+        raise NotImplementedError(f"Unknown dataset {dataset}")
+    print(f"Loading dataset {dataset}")
     return args, data

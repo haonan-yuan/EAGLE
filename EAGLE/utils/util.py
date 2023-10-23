@@ -22,7 +22,7 @@ def init_logger(log_file=None):
     console_handler.setFormatter(log_format)
     logger.handlers = [console_handler]
 
-    if log_file and log_file != '':
+    if log_file and log_file != "":
         file_handler = logging.FileHandler(log_file)
         file_handler.setFormatter(log_format)
         logger.addHandler(file_handler)

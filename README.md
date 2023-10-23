@@ -1,6 +1,10 @@
+[![Black Logo](https://raw.githubusercontent.com/psf/black/main/docs/_static/logo2-readme.png)](https://black.readthedocs.io/en/stable/)
+
 # EAGLE: Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization
 
-This repository is the official implementation of "Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)" accepted by the 37th Conference on Neural Information Processing Systems (NeurIPS 2023).
+This repository is the official implementation of "[Environment-Aware Dynamic Graph Learning for Out-of-Distribution Generalization (EAGLE)](https://openreview.net/forum?id=n8JWIzYPRz)" accepted by the 37th Conference on Neural Information Processing Systems (NeurIPS 2023).
+
+------
 
 ## Abstract
 

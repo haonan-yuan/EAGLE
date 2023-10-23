@@ -22,7 +22,12 @@ def mp_exec(resources, configs, func):
     for idx, cfg in enumerate(configs):
         dev = q.get()
         print(f"Start config {cfg} on device {dev}")
-        pool.apply_async(func, args=[dev, cfg], callback=put_back_dev(dev, cfg), error_callback=put_back_dev(dev, cfg))
+        pool.apply_async(
+            func,
+            args=[dev, cfg],
+            callback=put_back_dev(dev, cfg),
+            error_callback=put_back_dev(dev, cfg),
+        )
 
     pool.close()
     pool.join()

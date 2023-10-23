@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append("..")
 
 from EAGLE.config import args
@@ -16,7 +17,7 @@ args, data = load_data(args)
 
 # pre-logs
 log_dir = args.log_dir
-init_logger(prepare_dir(log_dir) + 'log_' + args.dataset + '.txt')
+init_logger(prepare_dir(log_dir) + "log_" + args.dataset + ".txt")
 info_dict = get_arg_dict(args)
 
 # Runner
@@ -30,13 +31,13 @@ runner = Runner(args, model, cvae, data)
 
 results = []
 
-if args.mode == 'train':
+if args.mode == "train":
     results = runner.run()
-elif args.mode == 'eval':
+elif args.mode == "eval":
     results = runner.re_run()
 
 # post-logs
 measure_dict = results
 info_dict.update(measure_dict)
-filename = 'info_' + args.dataset + '.json'
-json.dump(info_dict, open(osp.join(log_dir, filename), 'w'))
+filename = "info_" + args.dataset + ".json"
+json.dump(info_dict, open(osp.join(log_dir, filename), "w"))
